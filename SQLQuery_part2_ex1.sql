@@ -23,7 +23,7 @@
 
 -- Please write a query that will return a list of all the countries that have an area greater than the combined area of all their neighbours.
 
-SELECT DISTINCT
+SELECT
     name as Country_name,
     area,
     country_code,
@@ -38,7 +38,7 @@ SUM (area)
 FROM
 dbo.countries
 WHERE
-country_code == neighbour_code     
+country_code != country_code     
 
 )
 ORDER BY
@@ -48,20 +48,20 @@ ORDER BY
 
 -- Please write a query that will return all the countries from ‘South America’ region and the percentage their population represents out of the total population of the region (order from highest to lowest). 
 
--- SELECT 
--- name,
--- region,
--- population,
--- SUM(population) AS total,
--- population/SUM(population) * 100 AS 'percentage'
--- FROM dbo.countries
--- WHERE
---     region = 'South America'
--- GROUP BY  
--- name , 
--- region,
--- population
--- ORDER  BY name DESC; 
+SELECT 
+name,
+region,
+population,
+SUM(population) AS total,
+population/SUM(population) * 100 AS 'percentage'
+FROM dbo.countries
+WHERE
+    region = 'South America'
+GROUP BY  
+name , 
+region,
+population
+ORDER  BY name DESC; 
 
 
 
