@@ -38,23 +38,23 @@
 --     );
 
 -- Please write a query that will return the final standings of this group: expected columns are TEAM_NAME, GOALS_FOR (number of goals scored by the team), GOALS_AGAINST (number of goals scored against the team);
--- Order by most points first.
 
 
--- SELECT  
---     m.host_team host_team,
---     t.name name
---     -- SUM(m.host_goals) goals_for,
---     -- SUM(m.guest_goals) goals_against
 
--- FROM 
---     dbo.team t
---     INNER JOIN dbo.match m 
---         ON t.team_id = m.host_team
--- GROUP BY
---     t.name
--- ORDER BY
---    t.name;       
+SELECT  
+    m.host_team host_team,
+    t.name name
+    -- SUM(m.host_goals) goals_for,
+    -- SUM(m.guest_goals) goals_against
+
+FROM 
+    dbo.team t
+    INNER JOIN dbo.match m 
+        ON t.team_id = m.host_team
+GROUP BY
+    t.name
+ORDER BY
+   t.name;       
 
 
 
