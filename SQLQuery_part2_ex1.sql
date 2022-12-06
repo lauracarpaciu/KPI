@@ -21,7 +21,7 @@
    
 -- )VALUES('ESP ','FRA'),('FRA ','ESP');
 
--- list of all the countries 
+-- Please write a query that will return a list of all the countries that have an area greater than the combined area of all their neighbours.
 
 -- SELECT DISTINCT
 --     name as Country_name,
@@ -31,7 +31,6 @@
 -- FROM
 --     dbo.countries c
 -- INNER JOIN dbo.borders b ON c.alpha3 = b.country_code
-
 -- WHERE
 --     area > (
 -- SELECT
@@ -42,17 +41,19 @@
 -- neighbour_code IN (
 -- SELECT
 -- neighbour_code
--- - FROM
---dbo.borders
---WHERE
--- country_code != neighbour_code
+-- FROM
+-- dbo.borders
+-- WHERE
+-- country_code == neighbour_code
            
 -- )
---)
+-- )
 -- ORDER BY
 --     area;
 
--- countries from ‘South America’ 
+
+
+-- Please write a query that will return all the countries from ‘South America’ region and the percentage their population represents out of the total population of the region (order from highest to lowest). 
 -- SELECT 
 -- name,
 -- region,
@@ -66,7 +67,7 @@
 -- name , 
 -- region,
 -- population
--- ORDER  BY name; 
+-- ORDER  BY name DESC; 
 
 
 

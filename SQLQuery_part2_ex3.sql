@@ -37,6 +37,8 @@
 --        1,	4,	1,	0
 --     );
 
+-- Please write a query that will return the final standings of this group: expected columns are TEAM_NAME, GOALS_FOR (number of goals scored by the team), GOALS_AGAINST (number of goals scored against the team);
+-- Order by most points first.
 
 
 -- SELECT  
@@ -54,49 +56,7 @@
 -- ORDER BY
 --    t.name;       
 
--- SELECT
---     name,
---     SUM (host_goals) AS goals_for,
---     SUM (guest_goals) AS goals_againts,
---     dbo.points(@host_goals ,@guest_goals ) As points
- 
--- FROM
---     dbo.team t
--- INNER JOIN dbo.match m ON t.team_id = m.host_team
--- -- WHERE
--- --     name = 'FC Barcelona'
--- GROUP BY
---     name
--- ORDER BY
---     name;
 
-
-
--- CREATE FUNCTION dbo.points(
---     @host_goals INT,
---     @guest_goals INT,
-
--- )
--- RETURNS INT
--- AS 
--- BEGIN
-
--- DECLARE @index INT = 0;
-
---   IF    (@host_goals > @guest_goals)
---     BEGIN
---         RETURN @index + 3 ;
---     END
-
--- IF  (@host_goals = @guest_goals)
---     BEGIN
---         RETURN @index + 1 ;
---     END    
---     ELSE
---     BEGIN
---          RETURN ;
---     END
--- END;
 
 
 

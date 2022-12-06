@@ -22,6 +22,7 @@
 -- (
 --     4,	0,0
 
+-- Please write a query that will sort the data so that we will have the files right under the folder that contains them (the parent).
 
 -- SELECT id_folder, parent_id, name FROM dbo.folder
 -- ORDER BY (
@@ -29,4 +30,6 @@
 -- WHEN parent_id = 0 THEN id_folder
 -- ELSE parent_id
 -- END);
+
+
 
