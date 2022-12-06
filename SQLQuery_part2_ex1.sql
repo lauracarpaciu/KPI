@@ -38,15 +38,8 @@ SUM (area)
 FROM
 dbo.countries
 WHERE
-neighbour_code IN (
-SELECT
-neighbour_code
-FROM
-dbo.borders
-WHERE
-country_code != country_code
-           
-)
+country_code != country_code     
+
 )
 ORDER BY
     area;
