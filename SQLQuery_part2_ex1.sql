@@ -9,6 +9,19 @@
    
 -- );
 
+-- CREATE TABLE dbo.countrie (
+--     name VARCHAR(100),
+--     alpha3 VARCHAR(3),
+--     area NUMERIC(38,0)
+   
+-- );
+-- INSERT INTO dbo.countrie(
+--     name ,
+--     alpha3 ,
+--     area
+--    )VALUES('Spania ','ESP',11),('Franta ','FRA',50),('Germania','GER',2);
+
+
 -- CREATE TABLE dbo.borders(
 --   country_code VARCHAR(3),
 --   neighbour_code VARCHAR(3)
@@ -19,30 +32,29 @@
 --   country_code ,
 --   neighbour_code 
    
--- )VALUES('ESP ','FRA'),('FRA ','ESP');
+-- )VALUES('FRA ','GER');
 
 -- Please write a query that will return a list of all the countries that have an area greater than the combined area of all their neighbours.
 
-SELECT
-    name as Country_name,
+SELECT 
+    name ,
     area,
+    alpha3,
     country_code,
     neighbour_code
 FROM
-    dbo.countries c
+    dbo.countrie c
 INNER JOIN dbo.borders b ON c.alpha3 = b.country_code
 WHERE
-    area > (
+    area > ALL (
 SELECT
-SUM (area)
+SUM(area) AS SUM
 FROM
-dbo.countries
+dbo.countrie
 WHERE
-country_code != country_code     
-
-)
+alpha3 = neighbour_code)
 ORDER BY
-    area;
+area;
 
 
 
