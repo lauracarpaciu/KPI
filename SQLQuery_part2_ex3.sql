@@ -46,8 +46,10 @@ SELECT
     t.name ,
     SUM(m.host_goals) goals_for,
     SUM(m.guest_goals) goals_against,
-   ( COUNT(CASE WHEN m.host_goals > m.guest_goals THEN 1 END) * 3 +
-    COUNT(CASE WHEN m.host_goals = m.guest_goals THEN 1 END) * 1 ) AS points 
+    SUM(IIF(m.host_goals > m.guest_goals, 1, 0))*3 AS 'Win',
+    SUM(IIF(m.host_goals = m.guest_goals, 1, 0))*1 AS 'Draw' 
+--    ( COUNT(CASE WHEN m.host_goals > m.guest_goals THEN 1 END) * 3 +
+--     COUNT(CASE WHEN m.host_goals = m.guest_goals THEN 1 END) * 1 ) AS points 
 
 FROM 
     dbo.team t
