@@ -42,17 +42,20 @@
 
 
 SELECT  
-    m.host_team host_team,
-    t.name name
-    -- SUM(m.host_goals) goals_for,
-    -- SUM(m.guest_goals) goals_against
+    m.host_team,
+    t.name ,
+    SUM(m.host_goals) goals_for,
+    SUM(m.guest_goals) goals_against,
+   ( COUNT(CASE WHEN m.host_goals > m.guest_goals THEN 1 END) * 3 +
+    COUNT(CASE WHEN m.host_goals = m.guest_goals THEN 1 END) * 1 ) AS points 
 
 FROM 
     dbo.team t
     INNER JOIN dbo.match m 
         ON t.team_id = m.host_team
 GROUP BY
-    t.name
+    t.name,
+    m.host_team
 ORDER BY
    t.name;       
 
