@@ -4,9 +4,13 @@ For these exercises I've got structure of one or more tables and  - it’s expec
 SQL SERVER
 
 •	DATA DEFINITION
+
 •	DATA MANIPULATION
+
 •	SQL SERVER AGGREGATE FUNCTIONS
+
 •	SQL SERVER DATE FUNCTIONS
+
 •	SQL SERVER SYSTEM FUNCTIONS
 
 
